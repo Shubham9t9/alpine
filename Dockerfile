@@ -1,7 +1,5 @@
 FROM alpine:latest
 
-CMD ["tail -f /dev/null"]
-
 RUN apk add curl git bind-tools busybox-extras jq 
 
 ENV BASE_URL=https://get.helm.sh
@@ -15,6 +13,8 @@ RUN curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -
     && mv ./kubectl /usr/local/bin/kubectl
     
 CMD export PATH=/usr/local/bin/
+
+CMD ["/bin/sh"]
 
 
     
